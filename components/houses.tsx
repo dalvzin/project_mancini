@@ -67,6 +67,14 @@ export function Houses() {
                   <p className="text-pretty font-light leading-relaxed text-cream/75">
                     {house.desc}
                   </p>
+                  <div className="mt-5 flex flex-col gap-1 text-sm font-light text-cream/60">
+                    <span className="flex items-center gap-2">
+                      <span aria-hidden className="text-beige">●</span> {house.address}
+                    </span>
+                    <a href={`tel:${house.phone}`} className="link-underline flex items-center gap-2 self-start">
+                      <span aria-hidden className="text-beige">●</span> {house.phone.replace('+5511', '(11) ').replace(/(\d{4})(\d{4})$/, '$1-$2')}
+                    </a>
+                  </div>
                   <ul className="mt-5 flex flex-wrap gap-2">
                     {house.traits.map((trait) => (
                       <li

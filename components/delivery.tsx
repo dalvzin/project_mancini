@@ -38,6 +38,9 @@ export function Delivery() {
                 <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">↗</span>
               </a>
               <span className="text-[0.68rem] uppercase tracking-[0.18em] text-cream/60">
+                {t.delivery.hours}
+              </span>
+              <span className="text-[0.68rem] uppercase tracking-[0.18em] text-cream/40">
                 {t.delivery.note}
               </span>
             </div>

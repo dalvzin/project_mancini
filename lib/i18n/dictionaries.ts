@@ -37,6 +37,7 @@ type Dict = {
     lead: string
     timeline: { year: string; title: string; text: string }[]
     pull: string
+    stats: { value: string; label: string }[]
   }
   houses: {
     label: string
@@ -49,6 +50,8 @@ type Dict = {
       kind: string
       year: string
       desc: string
+      address: string
+      phone: string
       traits: string[]
     }[]
   }
@@ -98,6 +101,7 @@ type Dict = {
     text: string
     cta: string
     note: string
+    hours: string
   }
   gallery: {
     label: string
@@ -111,13 +115,14 @@ type Dict = {
   contact: {
     label: string
     title: string
-    addressLabel: string
-    address: string
-    phoneLabel: string
+    subtitle: string
+    houses: { name: string; kind: string; address: string; phone: string; phoneDisplay: string }[]
     hoursLabel: string
     hours: string
     call: string
     directions: string
+    emailLabel: string
+    email: string
   }
   footer: {
     statement: string
@@ -183,6 +188,12 @@ const pt: Dict = {
       },
     ],
     pull: 'Comida italiana não se serve. Se compartilha.',
+    stats: [
+      { value: '15M+', label: 'Pessoas recebidas' },
+      { value: '13×', label: 'Melhor Italiano · Datafolha' },
+      { value: '3', label: 'Casas na Avanhandava' },
+      { value: '1980', label: 'Dal' },
+    ],
   },
   houses: {
     label: 'As Casas de Avanhandava',
@@ -197,6 +208,8 @@ const pt: Dict = {
         kind: 'Trattoria',
         year: 'dal 1980',
         desc: 'A casa original. Antepastos lendários, massas de família e o burburiço caloroso de uma trattoria italiana clássica.',
+        address: 'R. Avanhandava, 81',
+        phone: '+551132564320',
         traits: ['Antepasto', 'Massas de família', 'Ambiente clássico'],
       },
       {
@@ -205,6 +218,8 @@ const pt: Dict = {
         kind: 'Il Ristorante',
         year: 'dal 2001',
         desc: 'A face mais sofisticada da família. Pratos autorais, carnes, peixes e massas, com música ao vivo ao cair da noite.',
+        address: 'R. Avanhandava, 126',
+        phone: '+551132588510',
         traits: ['Autoral', 'Música ao vivo', 'Jantar'],
       },
       {
@@ -213,6 +228,8 @@ const pt: Dict = {
         kind: 'Pizzaria',
         year: 'dal 2004',
         desc: 'A energia da cantina italiana. Pizza no forno, pasta, música e vários ambientes para viver a noite.',
+        address: 'R. Avanhandava, 37',
+        phone: '+551132310033',
         traits: ['Forno a lenha', 'Cantina', 'Vários ambientes'],
       },
     ],
@@ -277,9 +294,10 @@ const pt: Dict = {
   delivery: {
     label: 'Delivery',
     title: 'A Itália até a sua porta',
-    text: 'Leve o sabor da Famiglia Mancini para casa. Nossos pratos preparados com o mesmo cuidado da cantina, prontos para o delivery.',
+    text: 'Leve o sabor da Famiglia Mancini para casa. Nossas pizzas, preparadas com o mesmo cuidado da cantina, prontas para o delivery.',
     cta: 'Pedir delivery',
-    note: 'Disponível pelas plataformas de entrega parceiras',
+    note: 'Disponível pela plataforma parceira Keeta',
+    hours: 'Diariamente das 18h às 23h',
   },
   gallery: {
     label: 'Galeria',
@@ -293,13 +311,18 @@ const pt: Dict = {
   contact: {
     label: 'Contato',
     title: 'Ci vediamo a tavola',
-    addressLabel: 'Endereço',
-    address: 'Rua Avanhandava, 81 — Bela Vista, São Paulo · SP',
-    phoneLabel: 'Reservas',
+    subtitle: 'Três casas, uma rua, uma família à sua espera.',
+    houses: [
+      { name: 'Famiglia Mancini', kind: 'Trattoria', address: 'R. Avanhandava, 81 — Bela Vista, São Paulo', phone: '+551132564320', phoneDisplay: '(11) 3256-4320' },
+      { name: 'Walter Mancini', kind: 'Il Ristorante', address: 'R. Avanhandava, 126 — Bela Vista, São Paulo', phone: '+551132588510', phoneDisplay: '(11) 3258-8510' },
+      { name: 'Famiglia Mancini', kind: 'Pizzaria', address: 'R. Avanhandava, 37 — Bela Vista, São Paulo', phone: '+551132310033', phoneDisplay: '(11) 3231-0033' },
+    ],
     hoursLabel: 'Funcionamento',
     hours: 'Aberto diariamente para almoço e jantar',
     call: 'Ligar',
     directions: 'Como chegar',
+    emailLabel: 'Reservas',
+    email: 'reservas@famigliamancini.com.br',
   },
   footer: {
     statement: 'Ci vediamo a tavola.',
@@ -365,6 +388,12 @@ const en: Dict = {
       },
     ],
     pull: 'Italian food is not served. It is shared.',
+    stats: [
+      { value: '15M+', label: 'Guests welcomed' },
+      { value: '13×', label: 'Best Italian · Datafolha' },
+      { value: '3', label: 'Houses on Avanhandava' },
+      { value: '1980', label: 'Since' },
+    ],
   },
   houses: {
     label: 'The Houses of Avanhandava',
@@ -379,6 +408,8 @@ const en: Dict = {
         kind: 'Trattoria',
         year: 'since 1980',
         desc: 'The original house. Legendary antipasti, family pasta and the warm buzz of a classic Italian trattoria.',
+        address: 'R. Avanhandava, 81',
+        phone: '+551132564320',
         traits: ['Antipasto', 'Family pasta', 'Classic room'],
       },
       {
@@ -387,6 +418,8 @@ const en: Dict = {
         kind: 'Il Ristorante',
         year: 'since 2001',
         desc: 'The family at its most refined. Signature plates, meat, fish and pasta, with live music as night falls.',
+        address: 'R. Avanhandava, 126',
+        phone: '+551132588510',
         traits: ['Signature', 'Live music', 'Dinner'],
       },
       {
@@ -395,6 +428,8 @@ const en: Dict = {
         kind: 'Pizzaria',
         year: 'since 2004',
         desc: 'The energy of an Italian cantina. Oven-fired pizza, pasta, music and many rooms to live the night.',
+        address: 'R. Avanhandava, 37',
+        phone: '+551132310033',
         traits: ['Wood-fired', 'Cantina', 'Many rooms'],
       },
     ],
@@ -459,9 +494,10 @@ const en: Dict = {
   delivery: {
     label: 'Delivery',
     title: 'Italy to your door',
-    text: 'Take the taste of Famiglia Mancini home. Our dishes prepared with the same cantina care, ready for delivery.',
+    text: 'Take the taste of Famiglia Mancini home. Our pizzas, prepared with the same cantina care, ready for delivery.',
     cta: 'Order delivery',
-    note: 'Available through partner delivery platforms',
+    note: 'Available through our partner platform Keeta',
+    hours: 'Daily from 6pm to 11pm',
   },
   gallery: {
     label: 'Gallery',
@@ -475,13 +511,18 @@ const en: Dict = {
   contact: {
     label: 'Contact',
     title: 'Ci vediamo a tavola',
-    addressLabel: 'Address',
-    address: 'Rua Avanhandava, 81 — Bela Vista, São Paulo · SP',
-    phoneLabel: 'Reservations',
+    subtitle: 'Three houses, one street, one family waiting for you.',
+    houses: [
+      { name: 'Famiglia Mancini', kind: 'Trattoria', address: 'R. Avanhandava, 81 — Bela Vista, São Paulo', phone: '+551132564320', phoneDisplay: '(11) 3256-4320' },
+      { name: 'Walter Mancini', kind: 'Il Ristorante', address: 'R. Avanhandava, 126 — Bela Vista, São Paulo', phone: '+551132588510', phoneDisplay: '(11) 3258-8510' },
+      { name: 'Famiglia Mancini', kind: 'Pizzaria', address: 'R. Avanhandava, 37 — Bela Vista, São Paulo', phone: '+551132310033', phoneDisplay: '(11) 3231-0033' },
+    ],
     hoursLabel: 'Opening',
     hours: 'Open daily for lunch and dinner',
     call: 'Call',
     directions: 'Directions',
+    emailLabel: 'Reservations',
+    email: 'reservas@famigliamancini.com.br',
   },
   footer: {
     statement: 'Ci vediamo a tavola.',
@@ -547,6 +588,12 @@ const it: Dict = {
       },
     ],
     pull: 'Il cibo italiano non si serve. Si condivide.',
+    stats: [
+      { value: '15M+', label: 'Persone accolte' },
+      { value: '13×', label: 'Miglior Italiano · Datafolha' },
+      { value: '3', label: 'Case in Avanhandava' },
+      { value: '1980', label: 'Dal' },
+    ],
   },
   houses: {
     label: 'Le Case di Avanhandava',
@@ -561,6 +608,8 @@ const it: Dict = {
         kind: 'Trattoria',
         year: 'dal 1980',
         desc: 'La casa originale. Antipasti leggendari, paste di famiglia e il calore vivace di una classica trattoria italiana.',
+        address: 'R. Avanhandava, 81',
+        phone: '+551132564320',
         traits: ['Antipasto', 'Paste di famiglia', 'Ambiente classico'],
       },
       {
@@ -569,6 +618,8 @@ const it: Dict = {
         kind: 'Il Ristorante',
         year: 'dal 2001',
         desc: 'La famiglia nella sua forma più raffinata. Piatti d’autore, carni, pesci e paste, con musica dal vivo al calar della sera.',
+        address: 'R. Avanhandava, 126',
+        phone: '+551132588510',
         traits: ['D’autore', 'Musica dal vivo', 'Cena'],
       },
       {
@@ -577,6 +628,8 @@ const it: Dict = {
         kind: 'Pizzeria',
         year: 'dal 2004',
         desc: 'L’energia della cantina italiana. Pizza al forno, pasta, musica e più ambienti per vivere la notte.',
+        address: 'R. Avanhandava, 37',
+        phone: '+551132310033',
         traits: ['Forno a legna', 'Cantina', 'Più ambienti'],
       },
     ],
@@ -641,9 +694,10 @@ const it: Dict = {
   delivery: {
     label: 'Delivery',
     title: 'L’Italia a casa tua',
-    text: 'Porta il sapore della Famiglia Mancini a casa. I nostri piatti preparati con la stessa cura della cantina, pronti per il delivery.',
+    text: 'Porta il sapore della Famiglia Mancini a casa. Le nostre pizze, preparate con la stessa cura della cantina, pronte per il delivery.',
     cta: 'Ordina il delivery',
-    note: 'Disponibile tramite le piattaforme di consegna partner',
+    note: 'Disponibile tramite la piattaforma partner Keeta',
+    hours: 'Tutti i giorni dalle 18 alle 23',
   },
   gallery: {
     label: 'Galleria',
@@ -657,13 +711,18 @@ const it: Dict = {
   contact: {
     label: 'Contatti',
     title: 'Ci vediamo a tavola',
-    addressLabel: 'Indirizzo',
-    address: 'Rua Avanhandava, 81 — Bela Vista, San Paolo · SP',
-    phoneLabel: 'Prenotazioni',
+    subtitle: 'Tre case, una strada, una famiglia che ti aspetta.',
+    houses: [
+      { name: 'Famiglia Mancini', kind: 'Trattoria', address: 'R. Avanhandava, 81 — Bela Vista, San Paolo', phone: '+551132564320', phoneDisplay: '(11) 3256-4320' },
+      { name: 'Walter Mancini', kind: 'Il Ristorante', address: 'R. Avanhandava, 126 — Bela Vista, San Paolo', phone: '+551132588510', phoneDisplay: '(11) 3258-8510' },
+      { name: 'Famiglia Mancini', kind: 'Pizzeria', address: 'R. Avanhandava, 37 — Bela Vista, San Paolo', phone: '+551132310033', phoneDisplay: '(11) 3231-0033' },
+    ],
     hoursLabel: 'Orari',
     hours: 'Aperto tutti i giorni a pranzo e cena',
     call: 'Chiama',
     directions: 'Indicazioni',
+    emailLabel: 'Prenotazioni',
+    email: 'reservas@famigliamancini.com.br',
   },
   footer: {
     statement: 'Ci vediamo a tavola.',

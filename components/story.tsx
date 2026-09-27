@@ -68,6 +68,18 @@ export function Story() {
             </Reveal>
           </div>
         </div>
+
+        {/* Stats band */}
+        <Reveal delay={80}>
+          <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden border border-ink/10 bg-ink/10 md:mt-28 md:grid-cols-4">
+            {t.story.stats.map((stat) => (
+              <div key={stat.label} className="bg-paper px-6 py-10 text-center md:py-12">
+                <dd className="font-serif text-4xl italic text-rosso md:text-6xl">{stat.value}</dd>
+                <dt className="mt-3 text-[0.62rem] uppercase tracking-[0.24em] text-ink-soft">{stat.label}</dt>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
       </div>
     </section>
   )
