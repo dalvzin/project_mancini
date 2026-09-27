@@ -1,0 +1,154 @@
+@import 'tailwindcss';
+
+/*
+  FAMIGLIA MANCINI — Design System
+  Warm Italian editorial palette: aged paper, wine rosso, espresso, olive accent.
+*/
+
+@theme inline {
+  /* Brand palette */
+  --color-ink: #201a15;
+  --color-ink-soft: #3a2f27;
+  --color-paper: #f2e9d8;
+  --color-paper-deep: #e9dcc4;
+  --color-cream: #f7f0e2;
+  --color-beige: #ddc9a8;
+  --color-rosso: #7a1e21;
+  --color-rosso-bright: #9c2b2c;
+  --color-espresso: #2c211a;
+  --color-olive: #5f5e34;
+  --color-gold: #b6873f;
+
+  /* Semantic mapping */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+
+  --font-serif: var(--font-cormorant), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-script), 'Brush Script MT', cursive;
+
+  --radius: 2px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    border-color: color-mix(in oklab, var(--color-ink) 12%, transparent);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background-color: var(--color-rosso);
+    color: var(--color-cream);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Editorial small-caps label */
+  .eyebrow {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+  }
+
+  /* Aged paper grain overlay */
+  .paper-grain {
+    position: relative;
+  }
+  .paper-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+
+  /* Animated organic underline */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+  transition:
+  opacity 1s cubic-bezier(0.19, 1, 0.22, 1) var(--reveal-delay, 0ms),
+  transform 1s cubic-bezier(0.19, 1, 0.22, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @keyframes eq {
+    0%,
+    100% {
+      transform: scaleY(0.3);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+}
