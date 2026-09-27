@@ -12,6 +12,7 @@ type Dict = {
     famiglia: string
     ristorante: string
     pizzaria: string
+    musica: string
     menu: string
     eventos: string
     giftcard: string
@@ -136,6 +137,7 @@ const pt: Dict = {
     famiglia: 'A Famiglia',
     ristorante: 'As Casas',
     pizzaria: 'Pizzaria',
+    musica: 'Música',
     menu: 'Cardápio',
     eventos: 'Eventos',
     giftcard: 'Gift Card',
@@ -271,7 +273,7 @@ const pt: Dict = {
   calligraphia: {
     label: 'Calligraphia',
     title: 'A arte que assina a casa',
-    text: 'A Calligraphia é a alma gráfica da Famiglia Mancini — o traço, a caligrafia e a arte italiana que dão personalidade a cada detalhe, do menu à parede.',
+    text: 'A Calligraphia é a alma gráfica da Famiglia Mancini �� o traço, a caligrafia e a arte italiana que dão personalidade a cada detalhe, do menu à parede.',
     detail: 'Arte · caligrafia · identidade',
   },
   delivery: {
@@ -318,6 +320,7 @@ const en: Dict = {
     famiglia: 'The Family',
     ristorante: 'The Houses',
     pizzaria: 'Pizzaria',
+    musica: 'Music',
     menu: 'Menu',
     eventos: 'Events',
     giftcard: 'Gift Card',
@@ -500,6 +503,7 @@ const it: Dict = {
     famiglia: 'La Famiglia',
     ristorante: 'Le Case',
     pizzaria: 'Pizzeria',
+    musica: 'Musica',
     menu: 'Menù',
     eventos: 'Eventi',
     giftcard: 'Gift Card',
